@@ -1,2 +1,4 @@
 theme: minima
 title: "Breakable Toy I - ToDo App"
+include:
+  - style.css
