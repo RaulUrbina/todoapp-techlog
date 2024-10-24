@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/style.css">
 
-# Breakable Toy I - ToDo App
+# Breakable Toy I - ToDo App - Technical Log
 ## Overview
 
 The following document explains the development process of the first Breakable Toy for the Encora's Spark program, a ToDo App to manage tasks. This project was built on ReactJS + Typescript for the frontend and Java with Spring Boot for the backend.
