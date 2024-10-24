@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="/style.css">
 
-# Breakable Toy I - ToDo App - Technical Log
-## Overview
+# **Breakable Toy I - ToDo App - Technical Log**
+## **Overview**
 
 The following document explains the development process of the first Breakable Toy for the Encora's Spark program, a ToDo App to manage tasks. This project was built on ReactJS + Typescript for the frontend and Java with Spring Boot for the backend.
 
-## Context
+## **Context**
 The project key features contain the capability of:
 - Creation, edit and deletion of tasks.
 - Each task contains a name, priority and optionally a due date.
@@ -14,7 +14,7 @@ The project key features contain the capability of:
 - A stats component where the average time of completion is displayed and stats filtered by priority (LOW, MEDIUM or HIGH).
 
 
-### Technologies Used
+### **Technologies Used**
 
 #### **Frontend**
 - ReactJS as framework
@@ -30,9 +30,9 @@ The project key features contain the capability of:
 - Lombok to simplify que DTOs and Object structure
 - Mockito for the unit test related with request
 
-## Solution
+## **Solution**
 
-### Backend
+### **Backend**
 The backend follows the standard layered architecture:
 1. **Controller**: Handles incoming HTTP requests and returns responses.
 2. **Service**: Contains business logic and processes data from the controller.
@@ -41,7 +41,7 @@ The backend follows the standard layered architecture:
 
 ![Backend Folder Tree](https://i.ibb.co/sRKRbnR/Screenshot-2024-10-23-at-11-15-35-p-m.png)
 
-#### Endpoints
+#### **Endpoints**
 The following endpoints have been implemented to handle all the necessary tasks operations:
 - `POST /todos`: Create a new task.
 - `GET /todos`: Retrieve all tasks with optional filters like priority, text, and completion status.
@@ -51,21 +51,21 @@ The following endpoints have been implemented to handle all the necessary tasks 
 - `PUT /todos/{id}/undone`: Mark a task as incomplete.
 - `GET /todos/completion-stats`: Retrieve the stats for the done done tasks.
 
-#### Unit Tests
-##### Tools Used
+#### **Unit Tests**
+##### **Tools Used**
 - **JUnit 5:** For structuring and running the tests.
 - **Mockito:** To mock service dependencies and simulate the external behavior.
-##### ToDoServiceTest:
+##### **ToDoServiceTest**:
 - `testAddItem_Success`: Tests that a task is correctly added to the list and that the task’s properties (text, priority, completion status) are properly set.
 - `testGetItem_NotFound`: Tests that when trying to retrieve a non-existing task, the service correctly returns an empty result.
 - `testMarkAsDone_Success`: Ensures that a task is marked as completed and the completion date is properly set.
 - `testUpdateItem_Success`: Verifies that updating a task changes the task’s text and priority while keeping its ID intact.
-##### ToDoControllerTest:
+##### **ToDoControllerTest**:
 - `testGetItem_Success`:  Ensures that the controller correctly retrieves a task and returns a 200 OK status.
 - `testAddItem_Success`: Verifies that a new task is successfully created and returned with a 201 CREATED status.
 - `testDeleteItem_Success`: Ensures that when a task is deleted, the service responds with an appropriate success message.
 - `testDeleteItem_NotFound`: Tests that when trying to delete a non-existing task, the controller responds with a 404 NOT FOUND status.
-#### Postman API Tests
+#### **Postman API Tests**
 To ensure that the API was working correctly, a collection of Postman requests was created. Thanks to this tool the testing of the system was easier.
 
 ![image](https://github.com/user-attachments/assets/b098cff5-295d-4adf-8bdd-d156a202a6e7)
@@ -74,9 +74,9 @@ To ensure that the API was working correctly, a collection of Postman requests w
 
 
 
-### Frontend
+### **Frontend**
 
-#### Layout
+#### **Layout**
 The layout was implemented using a mix of flexbox and grid layouts. Grid was used for the filter component since in my opinion, is more flexible when asymmetrical components are implemented, which is the case for the filter. Here is the abstraction made:
 
 ![image](https://github.com/user-attachments/assets/e8e0be07-d885-4f1d-9b05-5ba800bdb260)
@@ -87,9 +87,9 @@ After figuring out the main components, implementing the layout got a lot easier
 
 ![image](https://github.com/user-attachments/assets/ad51e345-0a30-440b-a68f-c0c7b043dffb)
 
-#### The Logic Behid the Frontend
+#### **The Logic Behid the Frontend**
 
-##### Project Structure
+##### **Project Structure**
 
 The folder structure we used in the project can be considered a feature-based or modular component architecture. 
 Basically, it organizes files based on their role or function in the app, which helps a lot with code readability, maintenance, and keeping things clean as the project grows.
@@ -108,7 +108,7 @@ Here’s a general explanation:
 - **interfaces**: Since we are using TypeScript, this folder defines all the types and interfaces like `ToDo`, `ToDoParams`, and `ToDoPayload` to ensure type safety throughout the app.
 - **services**: The `ToDoService.ts` file is stored here, which handles all the API calls and communication between the front end and back end.
 
-#### State Manager
+#### **State Manager**
 
 Since i have worked on a couple of JavaScript based projects before, I'm very familiar of the well known "Prop Drilling" issue, therefore i decided to base all the communication of my project using state managers so i avoid passing data as props for each components and relying on events to trigger callbacks and update others. Two state managers were created, the main one is the ```useToDoStore.ts```, where i centralized the communcation between components.
 Thanks to this file, when a new task is created, the data doesn't need to be passed back and forth between components. Instead, the ```useToDoStore``` manages the state globally, and any component that depends on this state can automatically reflect the changes. For instance, when a task is marked as done, the toggle function updates the task's status in the global state and re-fetches the stats to ensure the entire application reflects the latest data.
