@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/style.css">
+
 # Breakable Toy I - ToDo App
 ## Overview
 
