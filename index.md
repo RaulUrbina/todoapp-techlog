@@ -1,4 +1,3 @@
-# Breakable Toy I - ToDo App
 ## Overview
 
 The following document explains the development process of the first Breakable Toy for the Encora's Spark program, a ToDo App to manage tasks. This project was built on ReactJS + Typescript for the frontend and Java with Spring Boot for the backend.
@@ -10,7 +9,10 @@ The project key features contain the capability of:
 - A filter component to search by name, priority and status (done/undone)
 - On the table, the users are able to check/uncheck, sort by prority or due date.
 - A stats component where the average time of completion is displayed and stats filtered by priority (LOW, MEDIUM or HIGH).
+
+
 ### Technologies Used
+
 #### Frontend
 - ReactJS as framework
 - Typescript as transpiler to have strict type.
@@ -19,18 +21,22 @@ The project key features contain the capability of:
 - Zustand as state manager.
 - Axios for api requests
 - Vistest as testing tool
+
 ### Backend
 - Spring Boot as a framework
 - Lombok to simplify que DTOs and Object structure
 - Mockito for the unit test related with request
+
 ## Solution
+
 ### Backend
 The backend follows the standard layered architecture:
 1. **Controller**: Handles incoming HTTP requests and returns responses.
 2. **Service**: Contains business logic and processes data from the controller.
 3. **DTO (Data Transfer Objects)**: Transfers data between layers, especially from the controller to the service.
 8. **Utils**: Contains utility classes or helper methods used across the application.
-![[[Backend Folder Tree](https://i.ibb.co/sRKRbnR/Screenshot-2024-10-23-at-11-15-35-p-m.png)]]
+
+![Backend Folder Tree](https://i.ibb.co/sRKRbnR/Screenshot-2024-10-23-at-11-15-35-p-m.png)
 
 #### Endpoints
 The following endpoints have been implemented to handle all the necessary tasks operations:
