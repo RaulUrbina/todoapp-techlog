@@ -18,10 +18,10 @@ The project key features contain the capability of:
 
 #### **Frontend**
 - ReactJS as framework
-- Typescript as transpiler to have strict type.
+- Typescript as programming language to have strict type
 - Tailwind as CSS framework
-- Shadcn/ui for the components component, which is built using RadixUI as base library.
-- Zustand as state manager.
+- Shadcn/ui for the components
+- Zustand as state manager
 - Axios for api requests
 - Vistest as testing tool
 
@@ -91,7 +91,7 @@ After figuring out the main components, implementing the layout got a lot easier
 
 ##### **Project Structure**
 
-The folder structure we used in the project can be considered a feature-based or modular component architecture. 
+The folder structure it was used in the project can be considered a feature-based architecture. 
 Basically, it organizes files based on their role or function in the app, which helps a lot with code readability, maintenance, and keeping things clean as the project grows.
 
 ![image](https://github.com/user-attachments/assets/90661f3f-bc59-4320-8e7a-7d4f58afdfa1)
